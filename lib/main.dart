@@ -7,13 +7,25 @@ import 'ui/splash_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  //second method below
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    name: 'SampleProject',
+    options: FirebaseOptions(
+      apiKey: "AIzaSyDwfm9biSmW54dGU4eZVWj6Kvknx639R5M",
+      appId: "1:230653104100:android:eb61f33aa65b767757c1f1",
+      messagingSenderId: "230653104100",
+      projectId: "sampleproject-9722a",
+    ),
+  );
   //await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   // This widget is the root of your application.
   @override
@@ -23,7 +35,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: SplashScreen(),
+      home: FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if(snapshot.hasError){
+            print("Error");
+          }
+          if(snapshot.connectionState == ConnectionState.done){
+            return SplashScreen();
+          }
+          return CircularProgressIndicator();
+
+        }
+      ),
     );
   }
 }

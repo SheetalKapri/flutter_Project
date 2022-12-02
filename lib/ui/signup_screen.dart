@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:first_app/ui/login_screen.dart';
 import 'package:first_app/utils/utils.dart';
 import 'package:first_app/widgets/roundButton.dart';

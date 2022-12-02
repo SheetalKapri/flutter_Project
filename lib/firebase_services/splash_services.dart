@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/ui/login_screen.dart';
-import 'package:first_app/ui/posts/post_screen.dart';
+import 'package:first_app/ui/posts/dashboard.dart';
+import 'package:first_app/ui/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,7 +16,7 @@ class SplashServices{
     // to check if this user has already loged in or not
     if(user!= null){
       Timer(const Duration(seconds: 3),
-              ()=> Navigator.push(context,MaterialPageRoute(builder: (context)=> PostScreen()))
+              ()=> Navigator.push(context,MaterialPageRoute(builder: (context)=> SignupScreen()))
           // if already loged in then transit to PostScreen page
       );
     }else{
