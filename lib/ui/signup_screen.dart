@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/ui/login_screen.dart';
+import 'package:first_app/ui/posts/sample_uploads.dart';
 import 'package:first_app/utils/utils.dart';
 import 'package:first_app/widgets/roundButton.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +31,14 @@ class _SignupScreenState extends State<SignupScreen> {
     _auth.createUserWithEmailAndPassword(
         email: emailController.text.toString(),
         password: passwordController.text.toString()).then((value){
+
+      Utils().toastMessage(value.user!.email.toString());  // to get user login mail id frm front end
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SampleUploads())
+        // to transit to next page >PostScreen
+      );
       setState(() {
-        loading= false;
+        loading = false; // now the page is already loaded so stop the circle
       });
       //to handle error messages using utils.dart file
     }).onError((error, stackTrace){

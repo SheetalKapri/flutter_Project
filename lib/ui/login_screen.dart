@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/ui/auth/login_with_phone.dart';
-import 'package:first_app/ui/posts/dashboard.dart';
+import 'package:first_app/ui/posts/sample_uploads.dart';
 import 'package:first_app/utils/utils.dart';
 import 'package:first_app/widgets/roundButton.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
         password: passwordController.text.toString()).then((value){
           Utils().toastMessage(value.user!.email.toString());  // to get user login mail id frm front end
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Dashboard())
+              MaterialPageRoute(builder: (context) => SampleUploads())
               // to transit to next page >PostScreen
           );
           setState(() {

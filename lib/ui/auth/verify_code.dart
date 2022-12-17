@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:first_app/ui/posts/dashboard.dart';
+import 'package:first_app/ui/posts/sample_uploads.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/utils.dart';
@@ -51,7 +51,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               try {
                 await auth.signInWithCredential(credential);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Dashboard())
+                    MaterialPageRoute(builder: (context) => SampleUploads())
                   // to transit to next page >LoginWithPhoneNo
                 );
               } catch (e) {

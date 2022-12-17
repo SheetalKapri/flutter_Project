@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/ui/login_screen.dart';
-import 'package:first_app/ui/posts/dashboard.dart';
+import 'package:first_app/ui/posts/sample_uploads.dart';
 import 'package:first_app/ui/signup_screen.dart';
 import 'package:flutter/material.dart';
 
